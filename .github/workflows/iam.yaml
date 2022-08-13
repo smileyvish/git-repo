@@ -49,7 +49,7 @@ jobs:
     - name: Terraform Apply
       run: |
         terraform apply 
-        -auto-approve
+          -auto-approve
       working-directory: ./Terraform
 
 
