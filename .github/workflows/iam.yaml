@@ -20,10 +20,8 @@ jobs:
 
     - name: Terraform Version
       run: terraform -v
-
-    - name: Unit Tests
-      run: npm run test:unit
-
+      
+      
     - name: Terraform Format
       run: terraform fmt -resursive
       working-directory: ./Terraform
