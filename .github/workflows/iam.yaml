@@ -1,12 +1,49 @@
-name: sn-workflow
+name: Terraform-workflow
 
 on: push
 
 jobs:
-  run-sn-workflow:
+  run-Terraform-workflow:
     runs-on: ubuntu-latest
     steps:
-    - name: 
-      uses: 
-    - 
-      
+    - name: hashicorp/setup-terraform@v1
+      uses: hashicorp/setup-terraform@v1
+    
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+         aws-access-key-id: ${{ secret.AWS_SECRET_ACCESS_KEY}}
+         aws-secret-access-key: ${{ secret.AWS_SECRET_ACCESS_KEY}}
+         aws-region: us-east-1
+    
+    - name: Node Version
+      run: node -v
+
+    - name: Terraform Version
+      run: terraform -v
+
+    - name: Unit Tests
+      run: npm run test:unit
+
+    - name: Terraform Format
+      run: terraform fmt -resursive
+      working-directory: ./Terraform
+
+    - name: Terraform init
+      run: terraform init
+      working-directory: ./Terraform
+
+    - name: Terraform plan
+      run: terraform plan
+      working-directory: ./Terraform
+
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: ./Terraform
+
+    - name: Terraform Apply
+      run: terraform apply
+      working-directory: ./Terraform
+
+    
+
