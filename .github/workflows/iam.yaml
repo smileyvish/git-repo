@@ -30,7 +30,7 @@ jobs:
       
 
     - name: Terraform Format
-      run: terraform fmt -resursive
+      run: terraform fmt -recursive
       working-directory: ./Terraform
 
     - name: Terraform init
