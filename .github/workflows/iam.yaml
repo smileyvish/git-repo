@@ -31,7 +31,7 @@ jobs:
 
     - name: Terraform Format
       run: terraform fmt -recursive
-      working-directory: /usr/bin/bash/smileyvish/git-repo/Terraform
+      working-directory: ${{Terraform.dir}}
 
     - name: Terraform init
       run: terraform init
