@@ -52,6 +52,11 @@ jobs:
           -auto-approve
       working-directory: ./Terraform
 
+    - name: Terraform destroy
+      run: |
+        terraform destroy \
+          -auto-approve 
+
 
     
 
