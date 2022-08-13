@@ -1,0 +1,12 @@
+name: sn-workflow
+
+on: push
+
+jobs:
+  run-sn-workflow:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 
+      uses: 
+    - 
+      
