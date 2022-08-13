@@ -4,7 +4,14 @@ on: push
 
 jobs:
   run-Terraform-workflow:
+    name: 'Deploy Prod environment'
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        shell: bash
+
+
     steps:
     - uses: hashicorp/setup-terraform@v1
     
@@ -21,7 +28,7 @@ jobs:
     - name: Terraform Version
       run: terraform -v
       
-      
+
     - name: Terraform Format
       run: terraform fmt -resursive
       working-directory: ./Terraform
