@@ -59,21 +59,15 @@ jobs:
 
 
 
-name: Terraform-Apply
+run-Terraform-workflow:
+  name: 'Deploy Prod'
+  runs-on: ubuntu-latest
 
-on: push
+  defaults:
+    run:
+      shell: bash
 
-jobs:
-  run-Terraform-workflow:
-    name: 'Deploy Prod environment'
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash
-
-
-    steps:
+  steps:
     - uses: hashicorp/setup-terraform@v1
     - uses: actions/checkout@v1
     
@@ -118,3 +112,7 @@ jobs:
 
     
 
+
+
+
+    
